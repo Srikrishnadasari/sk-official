@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTACT FORM</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "LpCRXzrBEK1duKnO0",
+      });
+   })();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><span>SK web design</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="contact.html" target="_self">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="containers">
+        <form onsubmit="sendMail(); reset(); return false;">
+            <h1> contact form</h1>
+            <input type="text" id="firstname" placeholder="enter first name.." required>
+            <input type="text" id="lastname" placeholder="enter last name.." required>
+            <input type="email" id="email" placeholder="enter email..." required>
+            <input type="tel" id="number" placeholder="enter phone number.." required>
+            <button type="submit">send</button>
+        </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js">
+</script>
+<script>
+  function sendMail(){
+            let parms={
+                // SecureToken:"dae5c7b1-fcd4-49e4-b4a9-ee83165a8da6",
+    // Host : "smtp.elasticegmail.com",
+    // Username : "sri90001122@gmail.com",
+    //  Password : "E56980C863877DB702B7A9125D7D781789CE",
+    // To :'sri90001122@gmail.com',
+    name:document.getElementById("firstname").value+document.getElementById("lastname").value,
+    email:document.getElementById("email").value,
+    subject : " interesetd students details ",
+    message : "first name:"+document.getElementById("firstname").value 
+    +"<br>last name:"+document.getElementById("lastname").value
+    +"<br>e mail:"+document.getElementById("email").value
+    +"</br>phone number:"+document.getElementById("number").value
+}
+// .then(
+//   message => alert("message send succesfully")
+// ).catch(
+//     error=>alert(error)
+// );
+//template_t8n0Ict
+//service_9mjngjd
+emailjs.send("service_9mjngjd","template_t8n0lct",parms).then(alert("message send succesfully"))
+}
+</script>
+    </script>
+</body>
+</html>
